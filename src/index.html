@@ -2,11 +2,37 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World!</title>
+    <title>Standing Time</title>
     <link rel="stylesheet" href="index.css" />
+
+    <script defer scr="render.js"></script>
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+    <h1>Standing Time</h1>
+    <p>It is time to stand.</p>
+
+    <div class="hero">
+      <div class="timebox">
+        <div class="time">
+          <h2 id="hours">00</h2>
+        </div>
+        <h2 class="time">:</h2>
+        <div class="time">
+          <h2 id="minutes">00</h2>
+        </div>
+        <h2 class="time">:</h2>
+        <div class="time">
+          <h2 id="seconds">00</h2>
+        </div>
+      </div>
+    </div>
+
+    <script src="render.js"></script>
+
+    <div class = "buttonmenu">
+      <button id="restartBtn">Restart</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="startBtn">Start</button>
+    </div>
   </body>
 </html>
