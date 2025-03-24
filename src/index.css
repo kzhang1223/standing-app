@@ -30,3 +30,13 @@ body {
   justify-content: center;
   gap: 10px;
 }
+
+/* next button */
+.next {
+  display: none;
+}
+
+/* checkmark button */
+.checkmark {
+  display: none;
+}

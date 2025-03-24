@@ -8,13 +8,13 @@
     <script defer scr="render.js"></script>
   </head>
   <body>
-    <h1>Standing Time</h1>
-    <p>It is time to stand.</p>
+    <h1 id="title">Working Time</h1>
+    <p id="subtitle">It is time to work.</p>
 
     <div class="hero">
       <div class="timebox">
         <div class="time">
-          <h2 id="hours">00</h2>
+          <h2 id="hours">01</h2>
         </div>
         <h2 class="time">:</h2>
         <div class="time">
@@ -29,10 +29,18 @@
 
     <script src="render.js"></script>
 
-    <div class = "buttonmenu">
-      <button id="restartBtn">Restart</button>
+    <div class="buttonmenu">
+      <button id="restartBtn" type="button" onclick="restartTimer();">Restart</button>
       <button id="pauseBtn" type="button" onclick="stopTimer();">Pause</button>
       <button id="startBtn" type="button" onclick="startTimer();">Start</button>
+    </div>
+
+    <div class="next">
+      <button id="nextBtn" type="button" onclick="nextButton();">Next</button>
+    </div>
+
+    <div class="checkmark">
+      <button id="checkBtn" type="button" onclick="checkButton();">Checkmark</button>
     </div>
   </body>
 </html>
