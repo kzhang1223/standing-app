@@ -60,16 +60,27 @@ function stopTimer () {
 // restart button functionality 
 function restartTimer () {
     console.log("timer should restart");
-    var restart = window.confirm("Are you sure you want to restart?");
+    const RestartDialog = document.getElementById("dialogBox");
+    RestartDialog.showModal();
     clearInterval(startTimerId);
     startBtnClicked = false;
+} 
 
-    if (restart) {
-        currentTime = currentTimeTotal;
-    }
+// yes button functionality
+function yesButton () {
+    currentTime = currentTimeTotal;
+    const RestartDialog = document.getElementById("dialogBox");
+    RestartDialog.close();
 
     timer();
-} 
+}
+
+// no button functionality
+function noButton () {
+    const RestartDialog = document.getElementById("dialogBox");
+    RestartDialog.close();
+    startTimerId = setInterval(timer, 1000);
+}
 
 // next button functionality
 function nextButton () {
@@ -98,27 +109,38 @@ function checkButton () {
     clearInterval(startTimerId);
     startBtnClicked = false;
     
-    var stood = window.confirm("Are you sure you stood? (you better not be lying)");
-    if (stood) {
-        console.log("standed");
-        currentTime = 1;
-        currentTimeTotal = 1;
+    const CheckDialog = document.getElementById("checkDialog");
+    CheckDialog.showModal();
+}
 
-        timer();
-        document.getElementsByClassName("buttonmenu")[0].style.display = "flex";
-        document.getElementsByClassName("checkmark")[0].style.display = "none";
+// yep button functionality
+function yepButton () {
+    console.log("standed");
+    currentTime = 1;
+    currentTimeTotal = 1;
 
-        document.getElementById("title").innerHTML = "Working Time";
-        document.getElementById("subtitle").innerHTML = "It is time to work.";
+    timer();
+    document.getElementsByClassName("buttonmenu")[0].style.display = "flex";
+    document.getElementsByClassName("checkmark")[0].style.display = "none";
 
-        standingTime = false;
-    } else {
-        console.log("did not stand");
-        currentTime = 2;
-        currentTimeTotal = 2;
+    document.getElementById("title").innerHTML = "Working Time";
+    document.getElementById("subtitle").innerHTML = "It is time to work.";
 
-        timer();
-        document.getElementsByClassName("buttonmenu")[0].style.display = "flex";
-        document.getElementsByClassName("checkmark")[0].style.display = "none";
-    }
+    standingTime = false;
+    const CheckDialog = document.getElementById("checkDialog");
+    CheckDialog.close();
+}
+
+// oops button functionality
+function oopsButton () {
+    console.log("did not stand");
+    currentTime = 2;
+    currentTimeTotal = 2;
+
+    timer();
+    document.getElementsByClassName("buttonmenu")[0].style.display = "flex";
+    document.getElementsByClassName("checkmark")[0].style.display = "none";
+    
+    const CheckDialog = document.getElementById("checkDialog");
+    CheckDialog.close();
 }

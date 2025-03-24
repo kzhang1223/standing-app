@@ -42,5 +42,25 @@
     <div class="checkmark">
       <button id="checkBtn" type="button" onclick="checkButton();">Checkmark</button>
     </div>
+
+    <div class="dialog">
+      <dialog id="dialogBox">
+        <p>Are you sure you want to restart?</p>
+        <form method="dialog">
+          <button id="yesBtn" type="button" onclick="yesButton();">Yes</button>
+          <button id="noBtn" type="button" onclick="noButton();">No</button>
+        </form>
+      </dialog>
+    </div>
+
+    <div class="dialog">
+      <dialog id="checkDialog">
+        <p>Are you sure you stood? (you better not be lying)</p>
+        <form method="dialog">
+          <button id="yepBtn" type="button" onclick="yepButton();">Yep!</button>
+          <button id="oopsBtn" type="button" onclick="oopsButton();">Oops...</button>
+        </form>
+      </dialog>
+    </div>
   </body>
 </html>
