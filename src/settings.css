@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+
+/* timer */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.timebox {
+    display: flex;
+    gap: 10px;
+}
+
+/* top menu */
+.topmenu {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+#leftArrow {
+    display: none;
+}
+
+/* menu to change the time */
+.changeTime {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* button to change the mode */
+.changeModeMenu {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* done button */
+.doneButton {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
