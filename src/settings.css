@@ -36,6 +36,14 @@ body {
     justify-content: center;
 }
 
+#minusThirty {
+    display: none;
+}
+
+#plusThirty {
+    display: none;
+}
+
 /* button to change the mode */
 .changeModeMenu {
     display: flex;
