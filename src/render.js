@@ -6,10 +6,23 @@ var startBtnClicked = false;
 var startTimerId;
 
 var standingTime = false;
+var initialized = false;
+
+var standingTimeTotal = window.localStorage.getItem("standingTimeTotal");
+var workingTimeTotal = window.localStorage.getItem("workingTimeTotal");
+console.log(standingTimeTotal)
+console.log(workingTimeTotal)
 
 // initializes and sets timer up
-var currentTime = 1;
-var currentTimeTotal = 1;
+var currentTime = workingTimeTotal;
+var currentTimeTotal = workingTimeTotal;
+
+function initializeVariables () {
+    window.localStorage.setItem("standingTimeTotal", "300");
+    window.localStorage.setItem("workingTimeTotal", "3600");
+    initialized = true;
+    window.localStorage.setItem("initialized", true);
+}
 
 function timer () {
     var hours = Math.floor(currentTime / 60 / 60) % 24;
@@ -42,9 +55,14 @@ function timer () {
 
 // start button functionality
 function startTimer () {
+    console.log(currentTime);
+    console.log(standingTimeTotal);
+    console.log(workingTimeTotal);
+    if (!window.localStorage.getItem("initialized")) {
+        initializeVariables();
+    }
     if (!startBtnClicked) {
         startTimerId = setInterval(timer, 1000);
-        console.log(startTimerId);
         startBtnClicked = true;
     }
 }
@@ -52,7 +70,6 @@ function startTimer () {
 // pause button functionality
 function stopTimer () {
     console.log("timer should stop");
-    console.log(startTimerId);
     clearInterval(startTimerId);
     startBtnClicked = false;
 }
@@ -89,8 +106,8 @@ function nextButton () {
     startBtnClicked = false;
 
     if (document.getElementsByClassName("next")[0].style.display == "flex") {
-        currentTime = 2;
-        currentTimeTotal = 2;
+        currentTime = standingTimeTotal;
+        currentTimeTotal = standingTimeTotal;
 
         timer();
         document.getElementsByClassName("buttonmenu")[0].style.display = "flex";
@@ -143,4 +160,9 @@ function oopsButton () {
     
     const CheckDialog = document.getElementById("checkDialog");
     CheckDialog.close();
+}
+
+// settings button functionality
+function settingsButton () {
+    window.location.href = "settings.html";
 }

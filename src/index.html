@@ -4,10 +4,23 @@
     <meta charset="UTF-8" />
     <title>Standing Time</title>
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo Chettan:wght@400&display=swap" />
 
-    <script defer scr="render.js"></script>
+    <script defer src="render.js"></script>
   </head>
   <body>
+    <!-- Header Section -->
+    <div id="titleBarContainer" class="draggable">
+      <button id="settingsBtn" type="button" onclick="settingsButton();" style="-webkit-app-region: no-drag;">Settings</button>
+    </div>
+<!-- 
+    <div class="start-menu">
+      <div class="background"></div>
+      <div class="working-time">Working Time</div>
+      <div class="white-border"></div>
+    </div> -->
+      
+    <!-- Main Section -->
     <h1 id="title">Working Time</h1>
     <p id="subtitle">It is time to work.</p>
 

@@ -1,7 +1,36 @@
+:root {
+    --fallback-title-bar-height: 40px;
+  }
+
 body {
     margin: 0;
     line-height: normal;
   }
+
+/* Header Section */
+/* .draggable {
+    -webkit-app-region: drag;
+}
+
+#titleBarContainer {
+    position: absolute;
+    top: env(titlebar-area-y, 0);
+    height: env(titlebar-area-height, var(--fallback-title-bar-height));
+    width: 100%;
+    background-color:#FFF;
+} */
+
+/* top menu */
+.topmenu {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+#leftArrow {
+    display: none;
+}
 
 /* timer */
 .hero {
@@ -14,18 +43,6 @@ body {
 .timebox {
     display: flex;
     gap: 10px;
-}
-
-/* top menu */
-.topmenu {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-}
-
-#leftArrow {
-    display: none;
 }
 
 /* menu to change the time */

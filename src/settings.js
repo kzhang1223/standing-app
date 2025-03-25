@@ -1,6 +1,11 @@
 const thirtyMinInSec = 30*60;
 const oneMinInSec = 60;
 
+var standingTimeTotal = parseInt(window.localStorage.getItem("standingTimeTotal"));
+var workingTimeTotal = parseInt(window.localStorage.getItem("workingTimeTotal"));
+console.log(standingTimeTotal);
+console.log(workingTimeTotal);
+
 // right arrow button functionality
 function rightArrow () {
     const Mode = document.getElementById("mode");
@@ -48,7 +53,7 @@ function getTime(time) {
     var minutes = Math.floor(time / 60) % 60;
     var seconds = Math.floor(time) % 60;
 
-    const Hours = document.getElementById("hours");
+    Hours = document.getElementById("hours");
     const Minutes = document.getElementById("minutes");
     const Seconds = document.getElementById("seconds");
 
@@ -65,6 +70,7 @@ function minusThirty () {
         workingTimeTotal = 0;
     }
 
+    console.log(workingTimeTotal);
     getTime(workingTimeTotal);
 }
 
@@ -77,6 +83,7 @@ function plusThirty () {
         workingTimeTotal += thirtyMinInSec;
     }
 
+    console.log(workingTimeTotal);
     getTime(workingTimeTotal);
 }
 
@@ -88,6 +95,7 @@ function minusOne () {
         standingTimeTotal = 0;
     }
 
+    console.log(standingTimeTotal);
     getTime(standingTimeTotal);
 }
 
@@ -98,11 +106,16 @@ function plusOne () {
         standingTimeTotal = 24*60*60;
     } else {
         standingTimeTotal += oneMinInSec;
+        console.log(standingTimeTotal);
     }
 
+    console.log(standingTimeTotal);
     getTime(standingTimeTotal);
 }
 
 function doneButton () {
+    window.localStorage.setItem("standingTimeTotal", standingTimeTotal);
+    window.localStorage.setItem("workingTimeTotal", workingTimeTotal);
     window.location.href = "index.html";
 }
+
