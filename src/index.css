@@ -18,7 +18,77 @@ body {
   top: env(titlebar-area-y, 0);
   height: env(titlebar-area-height, var(--fallback-title-bar-height));
   width: 100%;
-  background-color: #FFF;
+  background-color: transparent;
+}
+
+/* top menu */
+.settingsBtn {
+  -webkit-app-region: none;
+  position: relative;
+  padding: 0; 
+  border: none; 
+  background: white; 
+  width: 32px; 
+  height: 32px; 
+  pointer-events: auto;
+  right: 197px;
+  bottom: 7px;
+}
+
+#settings {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.minimizeBtn {
+  -webkit-app-region: none;
+  position: relative;
+  padding: 0; 
+  border: none; 
+  background: white; 
+  width: 32px; 
+  height: 32px; 
+  pointer-events: auto;
+  left: 197px;
+  bottom: 7px;
+}
+
+#minimize {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.closeBtn {
+  -webkit-app-region: none;
+  position: relative;
+  padding: 0; 
+  border: none; 
+  background: white; 
+  width: 32px; 
+  height: 32px; 
+  pointer-events: auto;
+  left: 197px;
+  bottom: 7px;
+}
+
+#close { 
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
 }
 
 /* Main Section */
@@ -63,7 +133,7 @@ body {
 }
 
 .image-icon {
-  top: 100px;
+  top: 31px;
   width: 312px;
   height: 194px;
   max-width: 100%;
@@ -81,7 +151,7 @@ body {
 }
 
 .timer-buttons-icon {
-  top: 173px;
+  top: 106px;
   position: relative;
   object-fit: cover;
 }

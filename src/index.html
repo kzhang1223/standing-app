@@ -11,50 +11,53 @@
   <script defer src="render.js"></script>
 </head>
 
-<body>
+<body class="start-menu">
+
   <!-- Header Section -->
   <div id="titleBarContainer" class="draggable">
-    <button id="settingsBtn" type="button" onclick="settingsButton();"
-      style="-webkit-app-region: no-drag;">Settings</button>
+    <div class="top-menu">
+      <button class="settingsBtn" type="button" onclick="settingsButton();">
+        <img id="settings" class="top-buttons-icon" alt="Settings" src="./assets/Settings Button.svg">
+      </button>
+      <button class="minimizeBtn" type="button" onclick="minimizeButton();">
+        <img id="minimize" class="top-buttons-icon" alt="" src="./assets/Minimize Button.svg">
+      </button>
+      <button class="closeBtn" type="button" onclick="closeButton();">
+        <img id="close" class="top-buttons-icon" alt="" src="./assets/Close Button.svg">
+      </button>
+    </div>
   </div>
-
-  <div class="start-menu">
-    <div class="background"></div>
-    <div class="working-time">Working Time</div>
-    <div class="white-border"></div>
-    <div class="div">
-      <div class="hero">
-        <div class="timebox">
-          <div class="time">
-            <h2 id="hours">01</h2>
-          </div>
-          <h2 class="time">:</h2>
-          <div class="time">
-            <h2 id="minutes">00</h2>
-          </div>
-          <h2 class="time">:</h2>
-          <div class="time">
-            <h2 id="seconds">00</h2>
-          </div>
+  
+  
+  <!-- Main Section -->
+  <div class="background"></div>
+  <div class="working-time">Working Time</div>
+  <div class="white-border"></div>
+  <div class="div">
+    <div class="hero">
+      <div class="timebox">
+        <div class="time">
+          <h2 id="hours">01</h2>
+        </div>
+        <h2 class="time">:</h2>
+        <div class="time">
+          <h2 id="minutes">00</h2>
+        </div>
+        <h2 class="time">:</h2>
+        <div class="time">
+          <h2 id="seconds">00</h2>
         </div>
       </div>
     </div>
-    <img class="image-icon" alt="penguin" src="./assets/penguin.png">
-    <div class="play-menu">
-      <img id="restart" class="timer-buttons-icon" alt="" src="./assets/Restart Button.svg">
-      <img id="pause" class="timer-buttons-icon" alt="" src="./assets/Pause Button.svg">
-      <img id="play" class="timer-buttons-icon" alt="" src="./assets/Play Button.svg">
-    </div>
+  </div>
+  <img class="image-icon" alt="penguin" src="./assets/penguin.png">
+  <div class="play-menu">
+    <img id="restart" class="timer-buttons-icon" alt="" src="./assets/Restart Button.svg">
+    <img id="pause" class="timer-buttons-icon" alt="" src="./assets/Pause Button.svg">
+    <img id="play" class="timer-buttons-icon" alt="" src="./assets/Play Button.svg">
   </div>
 
 
-  <!-- <p id="hours">01</p>
-    <p class="time">:</p>
-    <p id="minutes">00</p>
-    <p class="time">:</p>
-    <p id="seconds">00</p> -->
-
-  <!-- Main Section -->
 
   <!-- <script src="render.js"></script> -->
   <!-- 

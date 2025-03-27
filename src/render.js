@@ -17,14 +17,14 @@ console.log(workingTimeTotal)
 var currentTime = workingTimeTotal;
 var currentTimeTotal = workingTimeTotal;
 
-function initializeVariables () {
+function initializeVariables() {
     window.localStorage.setItem("standingTimeTotal", "300");
     window.localStorage.setItem("workingTimeTotal", "3600");
     initialized = true;
     window.localStorage.setItem("initialized", true);
 }
 
-function timer () {
+function timer() {
     var hours = Math.floor(currentTime / 60 / 60) % 24;
     var minutes = Math.floor(currentTime / 60) % 60;
     var seconds = Math.floor(currentTime) % 60;
@@ -41,20 +41,20 @@ function timer () {
 
     if (currentTime == 0) {
         document.getElementsByClassName("buttonmenu")[0].style.display = "none";
-        
+
         if (!standingTime) {
             document.getElementsByClassName("next")[0].style.display = "flex";
         } else {
             document.getElementsByClassName("checkmark")[0].style.display = "flex";
         }
-        
+
     }
 
     currentTime--;
 }
 
 // start button functionality
-function startTimer () {
+function startTimer() {
     console.log(currentTime);
     console.log(standingTimeTotal);
     console.log(workingTimeTotal);
@@ -68,23 +68,23 @@ function startTimer () {
 }
 
 // pause button functionality
-function stopTimer () {
+function stopTimer() {
     console.log("timer should stop");
     clearInterval(startTimerId);
     startBtnClicked = false;
 }
 
 // restart button functionality 
-function restartTimer () {
+function restartTimer() {
     console.log("timer should restart");
     const RestartDialog = document.getElementById("dialogBox");
     RestartDialog.showModal();
     clearInterval(startTimerId);
     startBtnClicked = false;
-} 
+}
 
 // yes button functionality
-function yesButton () {
+function yesButton() {
     currentTime = currentTimeTotal;
     const RestartDialog = document.getElementById("dialogBox");
     RestartDialog.close();
@@ -93,14 +93,14 @@ function yesButton () {
 }
 
 // no button functionality
-function noButton () {
+function noButton() {
     const RestartDialog = document.getElementById("dialogBox");
     RestartDialog.close();
     startTimerId = setInterval(timer, 1000);
 }
 
 // next button functionality
-function nextButton () {
+function nextButton() {
     console.log("next button was pressed");
     clearInterval(startTimerId);
     startBtnClicked = false;
@@ -121,17 +121,17 @@ function nextButton () {
 }
 
 // check button functionality
-function checkButton () {
+function checkButton() {
     console.log("checkmark button was pressed");
     clearInterval(startTimerId);
     startBtnClicked = false;
-    
+
     const CheckDialog = document.getElementById("checkDialog");
     CheckDialog.showModal();
 }
 
 // yep button functionality
-function yepButton () {
+function yepButton() {
     console.log("standed");
     currentTime = 1;
     currentTimeTotal = 1;
@@ -149,7 +149,7 @@ function yepButton () {
 }
 
 // oops button functionality
-function oopsButton () {
+function oopsButton() {
     console.log("did not stand");
     currentTime = 2;
     currentTimeTotal = 2;
@@ -157,12 +157,22 @@ function oopsButton () {
     timer();
     document.getElementsByClassName("buttonmenu")[0].style.display = "flex";
     document.getElementsByClassName("checkmark")[0].style.display = "none";
-    
+
     const CheckDialog = document.getElementById("checkDialog");
     CheckDialog.close();
 }
 
 // settings button functionality
-function settingsButton () {
+function settingsButton() {
+    // console.log("Settings button clicked!");
     window.location.href = "settings.html";
+}
+
+function closeButton() {
+    window.localStorage.clear();
+    window.electronAPI.closeWindow();
+}
+
+function minimizeButton() {
+    window.electronAPI.minimizeWindow();
 }

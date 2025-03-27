@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const { fstat } = require('node:fs');
 const path = require('node:path');
 
@@ -7,14 +7,22 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
+let mainWindow;
+
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 538,
     height: 550,
+    maxWidth: 538,
+    maxHeight: 550,
+    minWidth: 538,
+    minHeight: 550,
     backgroundColor: "#D4E7FF",
     webPreferences: {
-      nodeIntegration: true
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true,
+      contextIsolation: true,
     },
 
     // remove default title bar 
@@ -26,7 +34,20 @@ const createWindow = () => {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+  
 };
+
+ipcMain.on('close-window', (event) => {
+  if (mainWindow) {
+    mainWindow.close();
+  }
+});
+
+ipcMain.on('minimize-window', (event) => {
+  if (mainWindow) {
+    mainWindow.minimize(); // Minimize the window
+  }
+});
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -43,13 +64,16 @@ app.whenReady().then(() => {
   });
 });
 
+ipcMain.on('app-quit', (event) => {
+  event.sender.send('clear-localStorage');
+});
+
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
-    window.localStorage.clear();
   }
 });
 
