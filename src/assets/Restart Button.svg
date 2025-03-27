@@ -1,0 +1,17 @@
+<svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Restart Button">
+<g id="Clip path group">
+<mask id="mask0_1_22" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="38" height="38">
+<g id="a">
+<path id="Vector" d="M3.90002 4H33.9V34.4H3.90002V4Z" fill="white" stroke="white" stroke-width="7"/>
+</g>
+</mask>
+<g mask="url(#mask0_1_22)">
+<g id="Group">
+<path id="Vector_2" d="M18.8957 4.04871C27.1368 4.04871 33.8174 10.8303 33.8174 19.1958C33.8174 27.5614 27.1368 34.3429 18.8957 34.3429C10.6546 34.3429 3.97394 27.5614 3.97394 19.1958C3.97394 14.4375 6.13538 10.1916 9.51598 7.41474" stroke="#76B1FF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M3.97394 6.57324H10.6058V13.3053" stroke="#76B1FF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</svg>

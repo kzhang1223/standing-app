@@ -18,47 +18,83 @@ body {
   top: env(titlebar-area-y, 0);
   height: env(titlebar-area-height, var(--fallback-title-bar-height));
   width: 100%;
-  background-color:#FFF;
+  background-color: #FFF;
 }
 
 /* Main Section */
 .background {
   position: absolute;
-  top: 81px;
-  left: 24px;
+  top: 52px;
+  left: 15px;
   background-color: #a7cdff;
-  width: 939px;
-  height: 892px;
+  width: 508px;
+  height: 483px;
 }
 
 .working-time {
   position: absolute;
-  top: 825px;
-  left: 212px;
+  top: 459px;
+  left: 123px;
 }
 
 .white-border {
   position: absolute;
-  top: 121px;
-  left: 68px;
+  top: 69px;
+  left: 32px;
   background-color: #d4e7ff;
   border: 10px solid #fff;
   box-sizing: border-box;
-  width: 851px;
-  height: 687px;
+  width: 474px;
+  height: 385px;
 }
 
 /* timer */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.div {
+  position: absolute;
+  top: 200px;
+  left: 75px;
+  font-size: 59px;
+  color: #76b1ff;
 }
 
 .timebox {
   display: flex;
   gap: 10px;
+}
+
+.image-icon {
+  top: 100px;
+  width: 312px;
+  height: 194px;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  position: relative;
+  object-fit: cover;
+}
+
+.play-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+}
+
+.timer-buttons-icon {
+  top: 173px;
+  position: relative;
+  object-fit: cover;
+}
+
+.start-menu {
+  width: 100%;
+  position: relative;
+  background-color: #d4e7ff;
+  height: 550px;
+  text-align: center;
+  font-size: 48px;
+  color: #fff;
+  font-family: 'Baloo Chettan';
 }
 
 /* button menu */

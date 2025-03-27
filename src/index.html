@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Standing Time</title>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo Chettan:wght@400&display=swap" />
 
-    <script defer src="render.js"></script>
-  </head>
-  <body>
-    <!-- Header Section -->
-    <div id="titleBarContainer" class="draggable">
-      <button id="settingsBtn" type="button" onclick="settingsButton();" style="-webkit-app-region: no-drag;">Settings</button>
-    </div>
-<!-- 
-    <div class="start-menu">
-      <div class="background"></div>
-      <div class="working-time">Working Time</div>
-      <div class="white-border"></div>
-    </div> -->
-      
-    <!-- Main Section -->
-    <h1 id="title">Working Time</h1>
-    <p id="subtitle">It is time to work.</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+  <title>Standing Time</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo Chettan:wght@400&display=swap" />
 
-    <div class="hero">
-      <div class="timebox">
-        <div class="time">
-          <h2 id="hours">01</h2>
-        </div>
-        <h2 class="time">:</h2>
-        <div class="time">
-          <h2 id="minutes">00</h2>
-        </div>
-        <h2 class="time">:</h2>
-        <div class="time">
-          <h2 id="seconds">00</h2>
+  <script defer src="render.js"></script>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <div id="titleBarContainer" class="draggable">
+    <button id="settingsBtn" type="button" onclick="settingsButton();"
+      style="-webkit-app-region: no-drag;">Settings</button>
+  </div>
+
+  <div class="start-menu">
+    <div class="background"></div>
+    <div class="working-time">Working Time</div>
+    <div class="white-border"></div>
+    <div class="div">
+      <div class="hero">
+        <div class="timebox">
+          <div class="time">
+            <h2 id="hours">01</h2>
+          </div>
+          <h2 class="time">:</h2>
+          <div class="time">
+            <h2 id="minutes">00</h2>
+          </div>
+          <h2 class="time">:</h2>
+          <div class="time">
+            <h2 id="seconds">00</h2>
+          </div>
         </div>
       </div>
     </div>
+    <img class="image-icon" alt="penguin" src="./assets/penguin.png">
+    <div class="play-menu">
+      <img id="restart" class="timer-buttons-icon" alt="" src="./assets/Restart Button.svg">
+      <img id="pause" class="timer-buttons-icon" alt="" src="./assets/Pause Button.svg">
+      <img id="play" class="timer-buttons-icon" alt="" src="./assets/Play Button.svg">
+    </div>
+  </div>
 
-    <script src="render.js"></script>
 
+  <!-- <p id="hours">01</p>
+    <p class="time">:</p>
+    <p id="minutes">00</p>
+    <p class="time">:</p>
+    <p id="seconds">00</p> -->
+
+  <!-- Main Section -->
+
+  <!-- <script src="render.js"></script> -->
+  <!-- 
     <div class="buttonmenu">
       <button id="restartBtn" type="button" onclick="restartTimer();">Restart</button>
       <button id="pauseBtn" type="button" onclick="stopTimer();">Pause</button>
@@ -74,6 +90,7 @@
           <button id="oopsBtn" type="button" onclick="oopsButton();">Oops...</button>
         </form>
       </dialog>
-    </div>
-  </body>
+    </div> -->
+</body>
+
 </html>
