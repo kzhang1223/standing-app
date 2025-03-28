@@ -6,8 +6,3 @@ contextBridge.exposeInMainWorld('electronAPI', {
   closeWindow: () => ipcRenderer.send('close-window'),
   minimizeWindow: () => ipcRenderer.send('minimize-window'),
 });
-
-ipcRenderer.on('clear-localStorage', () => {
-    console.log("Clearing localStorage...");
-    window.localStorage.clear();
-  });

@@ -8,8 +8,8 @@ var startTimerId;
 var standingTime = false;
 var initialized = false;
 
-var standingTimeTotal = window.localStorage.getItem("standingTimeTotal");
-var workingTimeTotal = window.localStorage.getItem("workingTimeTotal");
+var standingTimeTotal = window.sessionStorage.getItem("standingTimeTotal");
+var workingTimeTotal = window.sessionStorage.getItem("workingTimeTotal");
 console.log(standingTimeTotal)
 console.log(workingTimeTotal)
 
@@ -17,11 +17,13 @@ console.log(workingTimeTotal)
 var currentTime = workingTimeTotal;
 var currentTimeTotal = workingTimeTotal;
 
+timer();
+
 function initializeVariables() {
-    window.localStorage.setItem("standingTimeTotal", "300");
-    window.localStorage.setItem("workingTimeTotal", "3600");
+    window.sessionStorage.setItem("standingTimeTotal", "300");
+    window.sessionStorage.setItem("workingTimeTotal", "3600");
     initialized = true;
-    window.localStorage.setItem("initialized", true);
+    window.sessionStorage.setItem("initialized", true);
 }
 
 function timer() {
@@ -58,9 +60,9 @@ function startTimer() {
     console.log(currentTime);
     console.log(standingTimeTotal);
     console.log(workingTimeTotal);
-    if (!window.localStorage.getItem("initialized")) {
-        initializeVariables();
-    }
+    // if (!window.sessionStorage.getItem("initialized")) {
+    //     initializeVariables();
+    // }
     if (!startBtnClicked) {
         startTimerId = setInterval(timer, 1000);
         startBtnClicked = true;
@@ -96,7 +98,6 @@ function yesButton() {
 function noButton() {
     const RestartDialog = document.getElementById("dialogBox");
     RestartDialog.close();
-    startTimerId = setInterval(timer, 1000);
 }
 
 // next button functionality
@@ -169,7 +170,6 @@ function settingsButton() {
 }
 
 function closeButton() {
-    window.localStorage.clear();
     window.electronAPI.closeWindow();
 }
 

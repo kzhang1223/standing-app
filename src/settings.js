@@ -1,10 +1,12 @@
 const thirtyMinInSec = 30*60;
 const oneMinInSec = 60;
 
-var standingTimeTotal = parseInt(window.localStorage.getItem("standingTimeTotal"));
-var workingTimeTotal = parseInt(window.localStorage.getItem("workingTimeTotal"));
+var standingTimeTotal = parseInt(window.sessionStorage.getItem("standingTimeTotal"));
+var workingTimeTotal = parseInt(window.sessionStorage.getItem("workingTimeTotal"));
 console.log(standingTimeTotal);
 console.log(workingTimeTotal);
+
+getTime(standingTimeTotal);
 
 // right arrow button functionality
 function rightArrow () {
@@ -53,7 +55,7 @@ function getTime(time) {
     var minutes = Math.floor(time / 60) % 60;
     var seconds = Math.floor(time) % 60;
 
-    Hours = document.getElementById("hours");
+    const Hours = document.getElementById("hours");
     const Minutes = document.getElementById("minutes");
     const Seconds = document.getElementById("seconds");
 
@@ -114,8 +116,8 @@ function plusOne () {
 }
 
 function doneButton () {
-    window.localStorage.setItem("standingTimeTotal", standingTimeTotal);
-    window.localStorage.setItem("workingTimeTotal", workingTimeTotal);
+    window.sessionStorage.setItem("standingTimeTotal", standingTimeTotal);
+    window.sessionStorage.setItem("workingTimeTotal", workingTimeTotal);
     window.location.href = "index.html";
 }
 

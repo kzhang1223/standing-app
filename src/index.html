@@ -17,56 +17,62 @@
   <div id="titleBarContainer" class="draggable">
     <div class="top-menu">
       <button class="settingsBtn" type="button" onclick="settingsButton();">
-        <img id="settings" class="top-buttons-icon" alt="Settings" src="./assets/Settings Button.svg">
+        <img id="settings" alt="Settings" src="./assets/Settings Button.svg">
       </button>
       <button class="minimizeBtn" type="button" onclick="minimizeButton();">
-        <img id="minimize" class="top-buttons-icon" alt="" src="./assets/Minimize Button.svg">
+        <img id="minimize" alt="" src="./assets/Minimize Button.svg">
       </button>
       <button class="closeBtn" type="button" onclick="closeButton();">
-        <img id="close" class="top-buttons-icon" alt="" src="./assets/Close Button.svg">
+        <img id="close" alt="" src="./assets/Close Button.svg">
       </button>
     </div>
   </div>
-  
-  
+
+
   <!-- Main Section -->
   <div class="background"></div>
   <div class="working-time">Working Time</div>
   <div class="white-border"></div>
   <div class="div">
-    <div class="hero">
-      <div class="timebox">
-        <div class="time">
-          <h2 id="hours">01</h2>
-        </div>
-        <h2 class="time">:</h2>
-        <div class="time">
-          <h2 id="minutes">00</h2>
-        </div>
-        <h2 class="time">:</h2>
-        <div class="time">
-          <h2 id="seconds">00</h2>
-        </div>
+    <div class="timebox">
+      <div class="time">
+        <h2 id="hours">00</h2>
+      </div>
+      <h2 class="time">:</h2>
+      <div class="time">
+        <h2 id="minutes">00</h2>
+      </div>
+      <h2 class="time">:</h2>
+      <div class="time">
+        <h2 id="seconds">00</h2>
       </div>
     </div>
   </div>
   <img class="image-icon" alt="penguin" src="./assets/penguin.png">
   <div class="play-menu">
-    <img id="restart" class="timer-buttons-icon" alt="" src="./assets/Restart Button.svg">
-    <img id="pause" class="timer-buttons-icon" alt="" src="./assets/Pause Button.svg">
-    <img id="play" class="timer-buttons-icon" alt="" src="./assets/Play Button.svg">
+    <button class="restartBtn" type="button" onclick="restartTimer();">
+      <img id="restart" class="timer-buttons-icon" alt="" src="./assets/Restart Button.svg">
+    </button>
+    <button class="pauseBtn" type="button" onclick="stopTimer();">
+      <img id="pause" class="timer-buttons-icon" alt="" src="./assets/Pause Button.svg">
+    </button>
+    <button class="playBtn" type="button" onclick="startTimer();">
+      <img id="play" class="timer-buttons-icon" alt="" src="./assets/Play Button.svg">
+    </button>
+  </div>
+
+  <div class="dialog">
+    <dialog id="dialogBox">
+      <p>Are you sure you want to restart?</p>
+      <form method="dialog">
+        <button id="yesBtn" type="button" onclick="yesButton();">Yes</button>
+        <button id="noBtn" type="button" onclick="noButton();">No</button>
+      </form>
+    </dialog>
   </div>
 
 
-
-  <!-- <script src="render.js"></script> -->
   <!-- 
-    <div class="buttonmenu">
-      <button id="restartBtn" type="button" onclick="restartTimer();">Restart</button>
-      <button id="pauseBtn" type="button" onclick="stopTimer();">Pause</button>
-      <button id="startBtn" type="button" onclick="startTimer();">Start</button>
-    </div>
-
     <div class="next">
       <button id="nextBtn" type="button" onclick="nextButton();">Next</button>
     </div>
@@ -75,15 +81,7 @@
       <button id="checkBtn" type="button" onclick="checkButton();">Checkmark</button>
     </div>
 
-    <div class="dialog">
-      <dialog id="dialogBox">
-        <p>Are you sure you want to restart?</p>
-        <form method="dialog">
-          <button id="yesBtn" type="button" onclick="yesButton();">Yes</button>
-          <button id="noBtn" type="button" onclick="noButton();">No</button>
-        </form>
-      </dialog>
-    </div>
+    
 
     <div class="dialog">
       <dialog id="checkDialog">
