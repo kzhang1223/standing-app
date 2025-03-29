@@ -1,5 +1,5 @@
-const thirtyMinInSec = 30*60;
-const oneMinInSec = 60;
+const thirtyMinInSec = 1;
+const oneMinInSec = 2;
 
 var standingTimeTotal = parseInt(window.sessionStorage.getItem("standingTimeTotal"));
 var workingTimeTotal = parseInt(window.sessionStorage.getItem("workingTimeTotal"));

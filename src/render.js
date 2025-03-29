@@ -42,12 +42,12 @@ function timer() {
     }
 
     if (currentTime == 0) {
-        document.getElementsByClassName("buttonmenu")[0].style.display = "none";
+        document.getElementsByClassName("play-menu")[0].style.display = "none";
 
         if (!standingTime) {
-            document.getElementsByClassName("next")[0].style.display = "flex";
+            document.getElementsByClassName("nextBtn")[0].style.display = "block";
         } else {
-            document.getElementsByClassName("checkmark")[0].style.display = "flex";
+            document.getElementsByClassName("checkBtn")[0].style.display = "block";
         }
 
     }
@@ -106,16 +106,15 @@ function nextButton() {
     clearInterval(startTimerId);
     startBtnClicked = false;
 
-    if (document.getElementsByClassName("next")[0].style.display == "flex") {
+    if (document.getElementsByClassName("nextBtn")[0].style.display == "block") {
         currentTime = standingTimeTotal;
         currentTimeTotal = standingTimeTotal;
 
         timer();
-        document.getElementsByClassName("buttonmenu")[0].style.display = "flex";
-        document.getElementsByClassName("next")[0].style.display = "none";
+        document.getElementsByClassName("play-menu")[0].style.display = "flex";
+        document.getElementsByClassName("nextBtn")[0].style.display = "none";
 
-        document.getElementById("title").innerHTML = "Standing Time";
-        document.getElementById("subtitle").innerHTML = "It is time to stand.";
+        document.getElementsByClassName("working-time")[0].innerHTML = "Stand.";
 
         standingTime = true;
     }
@@ -131,20 +130,25 @@ function checkButton() {
     CheckDialog.showModal();
 }
 
+function showStandingScreen() {
+    clearInterval(startTimerId);
+    startBtnClicked = false;
+
+    timer();
+    document.getElementsByClassName("play-menu")[0].style.display = "flex";
+    document.getElementsByClassName("checkBtn")[0].style.display = "none";
+
+    document.getElementsByClassName("working-time")[0].innerHTML = "Work.";
+
+    standingTime = false;
+}
+
 // yep button functionality
 function yepButton() {
     console.log("standed");
-    currentTime = 1;
-    currentTimeTotal = 1;
 
-    timer();
-    document.getElementsByClassName("buttonmenu")[0].style.display = "flex";
-    document.getElementsByClassName("checkmark")[0].style.display = "none";
+    showStandingScreen();
 
-    document.getElementById("title").innerHTML = "Working Time";
-    document.getElementById("subtitle").innerHTML = "It is time to work.";
-
-    standingTime = false;
     const CheckDialog = document.getElementById("checkDialog");
     CheckDialog.close();
 }
@@ -156,7 +160,7 @@ function oopsButton() {
     currentTimeTotal = 2;
 
     timer();
-    document.getElementsByClassName("buttonmenu")[0].style.display = "flex";
+    document.getElementsByClassName("play-menu")[0].style.display = "flex";
     document.getElementsByClassName("checkmark")[0].style.display = "none";
 
     const CheckDialog = document.getElementById("checkDialog");

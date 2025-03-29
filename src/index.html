@@ -31,7 +31,7 @@
 
   <!-- Main Section -->
   <div class="background"></div>
-  <div class="working-time">Working Time</div>
+  <div class="working-time">Work.</div>
   <div class="white-border"></div>
   <div class="div">
     <div class="timebox">
@@ -61,6 +61,18 @@
     </button>
   </div>
 
+  <div class="next">
+    <button class="nextBtn" type="button" onclick="nextButton();">
+      <img id="next" alt="Next" src="./assets/Next Arrow Button.svg">
+    </button>
+  </div>
+
+  <div class="checkmark">
+    <button class="checkBtn" type="button" onclick="checkButton();">
+      <img id="check" alt="Check" src="./assets/CheckMark Button.svg">
+    </button>
+  </div>
+
   <div class="dialog">
     <dialog id="dialogBox">
       <p>Are you sure you want to restart?</p>
@@ -71,18 +83,6 @@
     </dialog>
   </div>
 
-
-  <!-- 
-    <div class="next">
-      <button id="nextBtn" type="button" onclick="nextButton();">Next</button>
-    </div>
-
-    <div class="checkmark">
-      <button id="checkBtn" type="button" onclick="checkButton();">Checkmark</button>
-    </div>
-
-    
-
     <div class="dialog">
       <dialog id="checkDialog">
         <p>Are you sure you stood? (you better not be lying)</p>
@@ -91,7 +91,7 @@
           <button id="oopsBtn" type="button" onclick="oopsButton();">Oops...</button>
         </form>
       </dialog>
-    </div> -->
+    </div>
 </body>
 
 </html>

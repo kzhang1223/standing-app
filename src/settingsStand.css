@@ -1,0 +1,125 @@
+:root {
+    --fallback-title-bar-height: 40px;
+}
+
+body {
+    margin: 0;
+    line-height: normal;
+}
+
+/* Header Section */
+.draggable {
+    -webkit-app-region: drag;
+}
+
+#titleBarContainer {
+    position: absolute;
+    top: env(titlebar-area-y, 0);
+    height: env(titlebar-area-height, var(--fallback-title-bar-height));
+    width: 100%;
+    background-color: transparent;
+}
+
+.minimizeBtn {
+    -webkit-app-region: none;
+    position: relative;
+    padding: 0;
+    border: none;
+    background: white;
+    width: 32px;
+    height: 32px;
+    pointer-events: auto;
+    left: 217px;
+    bottom: 7px;
+}
+
+#minimize {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.closeBtn {
+    -webkit-app-region: none;
+    position: relative;
+    padding: 0;
+    border: none;
+    background: white;
+    width: 32px;
+    height: 32px;
+    pointer-events: auto;
+    left: 217px;
+    bottom: 7px;
+}
+
+#close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+/* Main Section */
+.settings-menu {
+    width: 100%;
+    position: relative;
+    background-color: #d4e7ff;
+    height: 550px;
+    text-align: center;
+    font-size: 48px;
+    color: #fff;
+    font-family: 'Baloo Chettan';
+}
+
+.background {
+    position: absolute;
+    top: 52px;
+    left: 15px;
+    background-color: #a7cdff;
+    width: 508px;
+    height: 483px;
+}
+
+.white-border {
+    position: absolute;
+    top: 69px;
+    left: 32px;
+    background-color: #d4e7ff;
+    border: 10px solid #fff;
+    box-sizing: border-box;
+    width: 474px;
+    height: 385px;
+}
+
+/* timer */
+.div {
+    position: absolute;
+    /* Optional: If you want it positioned relative to its parent */
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center the element */
+    font-size: 59px;
+    color: #76b1ff;
+    text-align: center;
+}
+
+.timebox {
+    display: flex;
+    gap: 10px;
+}
+
+/* header title */
+.header-title {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+}
