@@ -101,7 +101,6 @@ body {
 /* timer */
 .div {
     position: absolute;
-    /* Optional: If you want it positioned relative to its parent */
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -119,7 +118,91 @@ body {
 /* header title */
 .header-title {
     position: absolute;
-    top: 150px;
+    top: 155px;
     left: 50%;
     transform: translateX(-50%);
 }
+
+.minusOneBtn {
+    -webkit-app-region: none;
+    position: relative;
+    padding: 0;
+    border: none; 
+    background: transparent; 
+    width: 80px; 
+    height: 38px; 
+    pointer-events: auto;
+    left: 0%;
+    bottom: 0%;
+  }
+  
+  #minus-one { 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .addOneBtn {
+    -webkit-app-region: none;
+    position: relative;
+    padding: 0;
+    border: none; 
+    background: transparent; 
+    width: 80px; 
+    height: 38px; 
+    pointer-events: auto;
+    left: 0%;
+    bottom: 0%;
+  }
+  
+  #add-one { 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .doneBtn {
+    -webkit-app-region: none;
+    position: relative;
+    padding: 0;
+    border: none; 
+    background: transparent; 
+    width: 86px; 
+    height: 29px; 
+    pointer-events: auto;
+    left: 0%;
+    bottom: 0%;
+  }
+  
+  #done {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .top-buttons {
+    display: flex;
+    gap: 20px;
+  }
+
+  .button-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 15px;
+    top: 305px;
+  }

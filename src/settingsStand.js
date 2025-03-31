@@ -77,7 +77,6 @@ function minusThirty () {
 }
 
 // plus thirty minutes
-// TODO: when it gets to 24 hours it breaks and turns to 0 
 function plusThirty () {
     if (workingTimeTotal+thirtyMinInSec > 24*60*60) {
         workingTimeTotal = 24*60*60;
@@ -102,7 +101,6 @@ function minusOne () {
 }
 
 // plus one minute
-// TODO: when it gets to 24 hours it breaks and turns to 0 
 function plusOne () {
     if (standingTimeTotal+oneMinInSec > 24*60*60) {
         standingTimeTotal = 24*60*60;

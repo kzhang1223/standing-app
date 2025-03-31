@@ -169,8 +169,12 @@ function oopsButton() {
 
 // settings button functionality
 function settingsButton() {
-    // console.log("Settings button clicked!");
-    window.location.href = "settings.html";
+    if (standingTime) {
+        window.location.href = "settingsStand.html";
+    } else {
+        window.location.href = "settingsWork.html";
+    }
+    
 }
 
 function closeButton() {
