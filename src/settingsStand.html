@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Standing Time</title>
-  <link rel="stylesheet" href="settingsStand.css" />
+  <link rel="stylesheet" href="settings.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo Chettan:wght@400&display=swap" />
 
   <script defer src="settingsStand.js"></script>
@@ -42,8 +42,11 @@
       </div>
     </div>
   </div>
-  <img class="header-title" alt="standing" src="./assets/Header.svg">
-
+  <img class="header-title" alt="standing" src="./assets/Header Standing.svg">
+  <button class="leftArrowBtn" type="button" onclick="leftArrow();">
+    <img id="left-arrow" alt="" src="./assets/Left Arrow.svg">
+  </button>
+  
   <div class="button-menu">
     <div class="top-buttons">
     <button class="minusOneBtn" type="button" onclick="minusOne();">
@@ -59,36 +62,6 @@
   </div>
 
   
-
-  <!-- <div class="topmenu">
-      <button id="leftArrow" type="button" onclick="leftArrow();"><-</button>
-      <h2 id="mode">Standing</h2>
-      <button id="rightArrow" type="button" onclick="rightArrow();">-></button>
-    </div>
-    <div class="hero">
-      <div class="timebox">
-        <div class="time">
-          <h2 id="hours">00</h2>
-        </div>
-        <h2 class="time">:</h2>
-        <div class="time">
-          <h2 id="minutes">05</h2>
-        </div>
-        <h2 class="time">:</h2>
-        <div class="time">
-          <h2 id="seconds">00</h2>
-        </div>
-      </div>
-    </div>
-    <div class="changeTime">
-      <button id="minusThirty" type="button" onclick="minusThirty();">-30:00</button>
-      <button id="plusThirty" type="button" onclick="plusThirty();">+30:00</button>
-      <button id="minusOne" type="button" onclick="minusOne();">-01:00</button>
-      <button id="plusOne" type="button" onclick="plusOne();">+01:00</button>
-    </div>
-    <div class="doneButton">
-      <button id="done" type="button" onclick="doneButton();">Done</button>
-    </div> -->
 </body>
 
 </html>

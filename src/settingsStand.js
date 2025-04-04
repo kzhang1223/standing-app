@@ -1,54 +1,9 @@
-const thirtyMinInSec = 1;
 const oneMinInSec = 2;
 
 var standingTimeTotal = parseInt(window.sessionStorage.getItem("standingTimeTotal"));
-var workingTimeTotal = parseInt(window.sessionStorage.getItem("workingTimeTotal"));
 console.log(standingTimeTotal);
-console.log(workingTimeTotal);
 
 getTime(standingTimeTotal);
-
-// right arrow button functionality
-function rightArrow () {
-    const Mode = document.getElementById("mode");
-    const LeftArrowBtn = document.getElementById("leftArrow");
-    const RightArrowBtn = document.getElementById("rightArrow");
-    const MinusThirtyBtn = document.getElementById("minusThirty");
-    const PlusThirtyBtn = document.getElementById("plusThirty");
-    const MinusOneBtn = document.getElementById("minusOne");
-    const PlusOneBtn = document.getElementById("plusOne");
-
-    Mode.innerHTML = "Working";
-    LeftArrowBtn.style.display = "flex";
-    RightArrowBtn.style.display = "none";
-    getTime(workingTimeTotal);
-
-    MinusThirtyBtn.style.display = "flex";
-    PlusThirtyBtn.style.display = "flex";
-    MinusOneBtn.style.display = "none";
-    PlusOneBtn.style.display = "none";
-}
-
-// left arrow button functionality
-function leftArrow () {
-    const Mode = document.getElementById("mode");
-    const LeftArrowBtn = document.getElementById("leftArrow");
-    const RightArrowBtn = document.getElementById("rightArrow");
-    const MinusThirtyBtn = document.getElementById("minusThirty");
-    const PlusThirtyBtn = document.getElementById("plusThirty");
-    const MinusOneBtn = document.getElementById("minusOne");
-    const PlusOneBtn = document.getElementById("plusOne");
-
-    Mode.innerHTML = "Standing";
-    LeftArrowBtn.style.display = "none";
-    RightArrowBtn.style.display = "flex";
-    getTime(standingTimeTotal);
-
-    MinusThirtyBtn.style.display = "none";
-    PlusThirtyBtn.style.display = "none";
-    MinusOneBtn.style.display = "flex";
-    PlusOneBtn.style.display = "flex";
-}
 
 function getTime(time) {
     var hours = Math.floor(time / 60 / 60) % 24;
@@ -64,28 +19,10 @@ function getTime(time) {
     Seconds.innerHTML = seconds.toString().padStart(2, 0);
 }
 
-// minus thirty minutes
-function minusThirty () {
-    if (workingTimeTotal-thirtyMinInSec > 0) {
-        workingTimeTotal -= thirtyMinInSec;
-    } else {
-        workingTimeTotal = 0;
-    }
-
-    console.log(workingTimeTotal);
-    getTime(workingTimeTotal);
-}
-
-// plus thirty minutes
-function plusThirty () {
-    if (workingTimeTotal+thirtyMinInSec > 24*60*60) {
-        workingTimeTotal = 24*60*60;
-    } else {
-        workingTimeTotal += thirtyMinInSec;
-    }
-
-    console.log(workingTimeTotal);
-    getTime(workingTimeTotal);
+// left arrow functionality
+function leftArrow () {
+    window.sessionStorage.setItem("standingTimeTotal", standingTimeTotal);
+    window.location.href = "settingsWork.html";
 }
 
 // minus one minute
@@ -114,8 +51,16 @@ function plusOne () {
 }
 
 function doneButton () {
+    window.sessionStorage.setItem("standingTime", "true");
     window.sessionStorage.setItem("standingTimeTotal", standingTimeTotal);
-    window.sessionStorage.setItem("workingTimeTotal", workingTimeTotal);
+
+    if (window.sessionStorage.getItem("workingTimeTotal") == null || window.sessionStorage.getItem("workingTimeTotal") == NaN) {
+        window.sessionStorage.setItem("workingTimeTotal", 0);
+    }
+
+    if (window.sessionStorage.getItem("standingTimeTotal") == null || window.sessionStorage.getItem("standingTimeTotal") == NaN) {
+        window.sessionStorage.setItem("standingTimeTotal", 0);
+    }
     window.location.href = "index.html";
 }
 

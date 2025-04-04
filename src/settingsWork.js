@@ -1,53 +1,14 @@
 const thirtyMinInSec = 1;
-const oneMinInSec = 2;
 
-var standingTimeTotal = parseInt(window.sessionStorage.getItem("standingTimeTotal"));
 var workingTimeTotal = parseInt(window.sessionStorage.getItem("workingTimeTotal"));
-console.log(standingTimeTotal);
 console.log(workingTimeTotal);
+console.log(typeof(workingTimeTotal));
 
-getTime(standingTimeTotal);
+getTime(workingTimeTotal);
 
-// right arrow button functionality
-function rightArrow () {
-    const Mode = document.getElementById("mode");
-    const LeftArrowBtn = document.getElementById("leftArrow");
-    const RightArrowBtn = document.getElementById("rightArrow");
-    const MinusThirtyBtn = document.getElementById("minusThirty");
-    const PlusThirtyBtn = document.getElementById("plusThirty");
-    const MinusOneBtn = document.getElementById("minusOne");
-    const PlusOneBtn = document.getElementById("plusOne");
-
-    Mode.innerHTML = "Working";
-    LeftArrowBtn.style.display = "flex";
-    RightArrowBtn.style.display = "none";
-    getTime(workingTimeTotal);
-
-    MinusThirtyBtn.style.display = "flex";
-    PlusThirtyBtn.style.display = "flex";
-    MinusOneBtn.style.display = "none";
-    PlusOneBtn.style.display = "none";
-}
-
-// left arrow button functionality
-function leftArrow () {
-    const Mode = document.getElementById("mode");
-    const LeftArrowBtn = document.getElementById("leftArrow");
-    const RightArrowBtn = document.getElementById("rightArrow");
-    const MinusThirtyBtn = document.getElementById("minusThirty");
-    const PlusThirtyBtn = document.getElementById("plusThirty");
-    const MinusOneBtn = document.getElementById("minusOne");
-    const PlusOneBtn = document.getElementById("plusOne");
-
-    Mode.innerHTML = "Standing";
-    LeftArrowBtn.style.display = "none";
-    RightArrowBtn.style.display = "flex";
-    getTime(standingTimeTotal);
-
-    MinusThirtyBtn.style.display = "none";
-    PlusThirtyBtn.style.display = "none";
-    MinusOneBtn.style.display = "flex";
-    PlusOneBtn.style.display = "flex";
+if (window.sessionStorage.getItem("okButtonPressed") != null) {
+    document.getElementsByClassName("timer-check")[0].style.display = "none";
+    document.getElementsByClassName("OKBtn")[0].style.display = "none";
 }
 
 function getTime(time) {
@@ -64,6 +25,12 @@ function getTime(time) {
     Seconds.innerHTML = seconds.toString().padStart(2, 0);
 }
 
+// right arrow functionality
+function rightArrow () {
+    window.sessionStorage.setItem("workingTimeTotal", workingTimeTotal);
+    window.location.href = "settingsStand.html";
+}
+
 // minus thirty minutes
 function minusThirty () {
     if (workingTimeTotal-thirtyMinInSec > 0) {
@@ -77,7 +44,6 @@ function minusThirty () {
 }
 
 // plus thirty minutes
-// TODO: when it gets to 24 hours it breaks and turns to 0 
 function plusThirty () {
     if (workingTimeTotal+thirtyMinInSec > 24*60*60) {
         workingTimeTotal = 24*60*60;
@@ -89,35 +55,25 @@ function plusThirty () {
     getTime(workingTimeTotal);
 }
 
-// minus one minute
-function minusOne () {
-    if (standingTimeTotal-oneMinInSec > 0) {
-        standingTimeTotal -= oneMinInSec;
-    } else {
-        standingTimeTotal = 0;
-    }
-
-    console.log(standingTimeTotal);
-    getTime(standingTimeTotal);
-}
-
-// plus one minute
-// TODO: when it gets to 24 hours it breaks and turns to 0 
-function plusOne () {
-    if (standingTimeTotal+oneMinInSec > 24*60*60) {
-        standingTimeTotal = 24*60*60;
-    } else {
-        standingTimeTotal += oneMinInSec;
-        console.log(standingTimeTotal);
-    }
-
-    console.log(standingTimeTotal);
-    getTime(standingTimeTotal);
-}
-
 function doneButton () {
-    window.sessionStorage.setItem("standingTimeTotal", standingTimeTotal);
+    window.sessionStorage.setItem("standingTime", "false");
     window.sessionStorage.setItem("workingTimeTotal", workingTimeTotal);
+
+    if (window.sessionStorage.getItem("workingTimeTotal") == null || window.sessionStorage.getItem("workingTimeTotal") == NaN) {
+        window.sessionStorage.setItem("workingTimeTotal", 0);
+    }
+
+    if (window.sessionStorage.getItem("standingTimeTotal") == null || window.sessionStorage.getItem("workingTimeTotal") == NaN) {
+        window.sessionStorage.setItem("standingTimeTotal", 0);
+    }
     window.location.href = "index.html";
+}
+
+function okButton () {
+    if (window.sessionStorage.getItem("okButtonPressed") == null) {
+        document.getElementsByClassName("timer-check")[0].style.display = "none";
+        document.getElementsByClassName("OKBtn")[0].style.display = "none";
+        window.sessionStorage.setItem("okButtonPressed", true);
+    }
 }
 

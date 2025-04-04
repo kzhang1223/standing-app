@@ -123,6 +123,54 @@ body {
     transform: translateX(-50%);
 }
 
+.rightArrowBtn {
+  -webkit-app-region: none;
+  position: relative;
+  padding: 0; 
+  border: none; 
+  background: transparent; 
+  width: 26.93px; 
+  height: 30.78px; 
+  pointer-events: auto;
+  left: 90px;
+  bottom: 0%;
+  top: 140px;
+}
+
+#right-arrow { 
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.leftArrowBtn {
+  -webkit-app-region: none;
+  position: relative;
+  padding: 0; 
+  border: none; 
+  background: transparent; 
+  width: 26.93px; 
+  height: 30.78px; 
+  pointer-events: auto;
+  bottom: 0%;
+  top: 140px;
+  right: 90px;
+}
+
+#left-arrow { 
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
 .minusOneBtn {
     -webkit-app-region: none;
     position: relative;
@@ -204,5 +252,36 @@ body {
     align-items: center;
     position: relative;
     gap: 15px;
-    top: 305px;
+    top: 240px;
+  }
+
+  .timer-check {
+    position: absolute;
+    width: 356px;
+    height: 233px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .OKBtn {
+    -webkit-app-region: none;
+    position: relative;
+    padding: 0;
+    border: none; 
+    background: transparent; 
+    width: 62.93px; 
+    height: 30.06px; 
+    pointer-events: auto;
+    top: 172px;
+  }
+  
+  #ok {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
   }

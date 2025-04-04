@@ -5,26 +5,30 @@ const Seconds = document.getElementById("seconds");
 var startBtnClicked = false;
 var startTimerId;
 
-var standingTime = false;
-var initialized = false;
-
-var standingTimeTotal = window.sessionStorage.getItem("standingTimeTotal");
-var workingTimeTotal = window.sessionStorage.getItem("workingTimeTotal");
-console.log(standingTimeTotal)
-console.log(workingTimeTotal)
-
 // initializes and sets timer up
-var currentTime = workingTimeTotal;
-var currentTimeTotal = workingTimeTotal;
-
-timer();
+initializeVariables();
 
 function initializeVariables() {
-    window.sessionStorage.setItem("standingTimeTotal", "300");
-    window.sessionStorage.setItem("workingTimeTotal", "3600");
-    initialized = true;
-    window.sessionStorage.setItem("initialized", true);
+    window.sessionStorage.setItem("standingTimeTotal", 5*60);
+    window.sessionStorage.setItem("workingTimeTotal", 60*60);
+    window.sessionStorage.setItem("initialized", "true");
+    window.sessionStorage.setItem("standingTime", "false");
 }
+
+// assigns the variables 
+var standingTimeTotal = parseInt(window.sessionStorage.getItem("standingTimeTotal"));
+var workingTimeTotal = parseInt(window.sessionStorage.getItem("workingTimeTotal"));
+
+if (window.sessionStorage.getItem("standingTime") == "true") {
+    var currentTime = standingTimeTotal;
+    var currentTimeTotal = standingTimeTotal;
+} else { 
+    var currentTime = workingTimeTotal;
+    var currentTimeTotal = workingTimeTotal;
+} 
+
+// displays the timer on the screen
+timer();
 
 function timer() {
     var hours = Math.floor(currentTime / 60 / 60) % 24;
@@ -44,7 +48,7 @@ function timer() {
     if (currentTime == 0) {
         document.getElementsByClassName("play-menu")[0].style.display = "none";
 
-        if (!standingTime) {
+        if (window.sessionStorage.getItem("standingTime") == "false") {
             document.getElementsByClassName("nextBtn")[0].style.display = "block";
         } else {
             document.getElementsByClassName("checkBtn")[0].style.display = "block";
@@ -60,9 +64,9 @@ function startTimer() {
     console.log(currentTime);
     console.log(standingTimeTotal);
     console.log(workingTimeTotal);
-    // if (!window.sessionStorage.getItem("initialized")) {
-    //     initializeVariables();
-    // }
+    if (!window.sessionStorage.getItem("initialized")) {
+        initializeVariables();
+    }
     if (!startBtnClicked) {
         startTimerId = setInterval(timer, 1000);
         startBtnClicked = true;
@@ -116,7 +120,7 @@ function nextButton() {
 
         document.getElementsByClassName("working-time")[0].innerHTML = "Stand.";
 
-        standingTime = true;
+        window.sessionStorage.setItem("standingTime", "true");
     }
 }
 
@@ -140,7 +144,7 @@ function showStandingScreen() {
 
     document.getElementsByClassName("working-time")[0].innerHTML = "Work.";
 
-    standingTime = false;
+    window.sessionStorage.setItem("standingTime", "false");
 }
 
 // yep button functionality
@@ -169,7 +173,7 @@ function oopsButton() {
 
 // settings button functionality
 function settingsButton() {
-    if (standingTime) {
+    if (window.sessionStorage.getItem("standingTime") == "true") {
         window.location.href = "settingsStand.html";
     } else {
         window.location.href = "settingsWork.html";
