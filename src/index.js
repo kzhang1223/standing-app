@@ -29,6 +29,9 @@ const createWindow = () => {
     titleBarStyle: 'hidden',
   });
 
+  // Disable background throttling so timer continues even if window is out of focus
+  mainWindow.webContents.setBackgroundThrottling(false);
+
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 

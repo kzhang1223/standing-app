@@ -56,7 +56,6 @@ function plusThirty () {
 }
 
 function doneButton () {
-    window.sessionStorage.setItem("standingTime", "false");
     window.sessionStorage.setItem("workingTimeTotal", workingTimeTotal);
 
     if (window.sessionStorage.getItem("workingTimeTotal") == null || window.sessionStorage.getItem("workingTimeTotal") == NaN) {
@@ -69,11 +68,4 @@ function doneButton () {
     window.location.href = "index.html";
 }
 
-function okButton () {
-    if (window.sessionStorage.getItem("okButtonPressed") == null) {
-        document.getElementsByClassName("timer-check")[0].style.display = "none";
-        document.getElementsByClassName("OKBtn")[0].style.display = "none";
-        window.sessionStorage.setItem("okButtonPressed", true);
-    }
-}
 

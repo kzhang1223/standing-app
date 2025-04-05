@@ -6,11 +6,13 @@ var startBtnClicked = false;
 var startTimerId;
 
 // initializes and sets timer up
-initializeVariables();
+if (window.sessionStorage.getItem("standingTimeTotal") == null) {
+    initializeVariables();
+}
 
 function initializeVariables() {
-    window.sessionStorage.setItem("standingTimeTotal", 5*60);
-    window.sessionStorage.setItem("workingTimeTotal", 60*60);
+    window.sessionStorage.setItem("standingTimeTotal", 2);
+    window.sessionStorage.setItem("workingTimeTotal", 1);
     window.sessionStorage.setItem("initialized", "true");
     window.sessionStorage.setItem("standingTime", "false");
 }
@@ -22,10 +24,13 @@ var workingTimeTotal = parseInt(window.sessionStorage.getItem("workingTimeTotal"
 if (window.sessionStorage.getItem("standingTime") == "true") {
     var currentTime = standingTimeTotal;
     var currentTimeTotal = standingTimeTotal;
-} else { 
+    document.getElementsByClassName("working-time")[0].innerHTML = "Stand.";
+} else {
     var currentTime = workingTimeTotal;
     var currentTimeTotal = workingTimeTotal;
-} 
+    document.getElementsByClassName("working-time")[0].innerHTML = "Work.";
+}
+console.log(currentTime);
 
 // displays the timer on the screen
 timer();
@@ -51,9 +56,11 @@ function timer() {
         if (window.sessionStorage.getItem("standingTime") == "false") {
             document.getElementsByClassName("nextBtn")[0].style.display = "block";
         } else {
+            if (document.getElementsByClassName("checkmark")[0].style.display == "none") {
+                document.getElementsByClassName("checkmark")[0].style.display = "block";
+            }
             document.getElementsByClassName("checkBtn")[0].style.display = "block";
         }
-
     }
 
     currentTime--;
@@ -134,24 +141,27 @@ function checkButton() {
     CheckDialog.showModal();
 }
 
-function showStandingScreen() {
+function showWorkingScreen() {
     clearInterval(startTimerId);
     startBtnClicked = false;
 
-    timer();
     document.getElementsByClassName("play-menu")[0].style.display = "flex";
-    document.getElementsByClassName("checkBtn")[0].style.display = "none";
+    document.getElementsByClassName("checkmark")[0].style.display = "none";
 
     document.getElementsByClassName("working-time")[0].innerHTML = "Work.";
 
     window.sessionStorage.setItem("standingTime", "false");
+
+    currentTime = workingTimeTotal;
+    currentTimeTotal = workingTimeTotal;
+    timer();
 }
 
 // yep button functionality
 function yepButton() {
     console.log("standed");
 
-    showStandingScreen();
+    showWorkingScreen();
 
     const CheckDialog = document.getElementById("checkDialog");
     CheckDialog.close();
@@ -160,8 +170,8 @@ function yepButton() {
 // oops button functionality
 function oopsButton() {
     console.log("did not stand");
-    currentTime = 2;
-    currentTimeTotal = 2;
+    currentTime = standingTimeTotal;
+    currentTimeTotal = standingTimeTotal;
 
     timer();
     document.getElementsByClassName("play-menu")[0].style.display = "flex";
@@ -178,7 +188,7 @@ function settingsButton() {
     } else {
         window.location.href = "settingsWork.html";
     }
-    
+
 }
 
 function closeButton() {

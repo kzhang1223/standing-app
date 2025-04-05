@@ -51,7 +51,6 @@ function plusOne () {
 }
 
 function doneButton () {
-    window.sessionStorage.setItem("standingTime", "true");
     window.sessionStorage.setItem("standingTimeTotal", standingTimeTotal);
 
     if (window.sessionStorage.getItem("workingTimeTotal") == null || window.sessionStorage.getItem("workingTimeTotal") == NaN) {
