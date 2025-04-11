@@ -73,25 +73,34 @@
     </button>
   </div>
 
-  <div class="dialog">
-    <dialog id="dialogBox">
-      <p>Are you sure you want to restart?</p>
-      <form method="dialog">
-        <button id="yesBtn" type="button" onclick="yesButton();">Yes</button>
-        <button id="noBtn" type="button" onclick="noButton();">No</button>
-      </form>
-    </dialog>
-  </div>
+  <dialog id="dialogBox">
+    <img id="dialogImage" alt="Dialog Image" src="./assets/Restart Dialog.svg">
+    <form method="dialog">
+      <div class="buttonArea">
+        <button class="yesBtn" type="button" onclick="yesButton();">
+          <img id="yes" alt="yes button" src="./assets/Yes Button.svg">
+        </button>
+        <button class="noBtn" type="button" onclick="noButton();">
+          <img id="no" alt="no button" src="./assets/No Button.svg">
+        </button>
+      </div>
+    </form>
+  </dialog>
 
-    <div class="dialog">
-      <dialog id="checkDialog">
-        <p>Are you sure you stood? (you better not be lying)</p>
-        <form method="dialog">
-          <button id="yepBtn" type="button" onclick="yepButton();">Yep!</button>
-          <button id="oopsBtn" type="button" onclick="oopsButton();">Oops...</button>
-        </form>
-      </dialog>
-    </div>
+  <dialog id="checkDialog">
+    <img id="confirmDialogImage" alt="Dialog Image" src="./assets/Confirm Dialog.svg">
+    <form method="dialog">
+      <button class="yepBtn" type="button" onclick="yepButton();">
+        <img id="yep" alt="yep button" src="./assets/Yep Button.svg">
+      </button>
+      <button class="oopsBtn" type="button" onclick="oopsButton();">
+        <img id="oops" alt="oops button" src="./assets/Oops Button.svg">
+      </button>
+    </form>
+  </dialog>
+
+  <audio id="waddleAudio" src="./assets/Penguin Waddle.mp3"></audio>
+  <audio id="penguinAudio" src="./assets/Penguin Sound.wav"></audio>
 </body>
 
 </html>

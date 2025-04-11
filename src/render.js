@@ -35,6 +35,9 @@ console.log(currentTime);
 // displays the timer on the screen
 timer();
 
+// makes sure alarm sound is not playing when page is loaded
+stopPenguinAudio();
+
 function timer() {
     var hours = Math.floor(currentTime / 60 / 60) % 24;
     var minutes = Math.floor(currentTime / 60) % 60;
@@ -61,6 +64,17 @@ function timer() {
             }
             document.getElementsByClassName("checkBtn")[0].style.display = "block";
         }
+
+        const waddleAudio = document.getElementById("waddleAudio");
+        const penguinAudio = document.getElementById("penguinAudio");
+
+        waddleAudio.play();
+        
+        waddleAudio.addEventListener("ended", () => {
+            penguinAudio.loop = true;
+            penguinAudio.volume = 0.8;
+            penguinAudio.play();
+        });
     }
 
     currentTime--;
@@ -111,11 +125,22 @@ function noButton() {
     RestartDialog.close();
 }
 
+// stops the penguin audio alarm
+function stopPenguinAudio() {
+    const waddleAudio = document.getElementById("waddleAudio");
+    const penguinAudio = document.getElementById("penguinAudio");
+    waddleAudio.pause();
+    waddleAudio.currentTime = 0;
+    penguinAudio.pause();
+    penguinAudio.currentTime = 0;
+}
+
 // next button functionality
 function nextButton() {
     console.log("next button was pressed");
     clearInterval(startTimerId);
     startBtnClicked = false;
+    stopPenguinAudio();
 
     if (document.getElementsByClassName("nextBtn")[0].style.display == "block") {
         currentTime = standingTimeTotal;
@@ -136,6 +161,7 @@ function checkButton() {
     console.log("checkmark button was pressed");
     clearInterval(startTimerId);
     startBtnClicked = false;
+    stopPenguinAudio();
 
     const CheckDialog = document.getElementById("checkDialog");
     CheckDialog.showModal();
