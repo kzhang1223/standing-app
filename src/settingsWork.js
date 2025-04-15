@@ -1,4 +1,4 @@
-const thirtyMinInSec = 1;
+const thirtyMinInSec = 30*60;
 
 var workingTimeTotal = parseInt(window.sessionStorage.getItem("workingTimeTotal"));
 console.log(workingTimeTotal);

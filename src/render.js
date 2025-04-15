@@ -22,8 +22,8 @@ if (window.sessionStorage.getItem("standingTimeTotal") == null) {
 }
 
 function initializeVariables() {
-    window.sessionStorage.setItem("standingTimeTotal", 2);
-    window.sessionStorage.setItem("workingTimeTotal", 1);
+    window.sessionStorage.setItem("standingTimeTotal", 5*60);
+    window.sessionStorage.setItem("workingTimeTotal", 60*60);
     window.sessionStorage.setItem("initialized", "true");
     window.sessionStorage.setItem("standingTime", "false");
 }

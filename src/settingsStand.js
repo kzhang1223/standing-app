@@ -1,4 +1,4 @@
-const oneMinInSec = 2;
+const oneMinInSec = 60;
 
 var standingTimeTotal = parseInt(window.sessionStorage.getItem("standingTimeTotal"));
 console.log(standingTimeTotal);
