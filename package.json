@@ -46,15 +46,15 @@
     ],
     "win": {
       "target": "nsis",
-      "icon": "src/assets/penguin.ico"
+      "icon": "src/assets/penguinIcon.ico"
     },
     "mac": {
       "target": "dmg",
-      "icon": "src/assets/penguin.icns"
+      "icon": "src/assets/penguinIcon.icns"
     },
     "linux": {
       "target": "AppImage",
-      "icon": "src/assets/penguin.png"
+      "icon": "src/assets/penguinIcon.png"
     }
   }
 }
