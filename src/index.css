@@ -178,12 +178,14 @@ body {
 }
 
 #restart:hover {
-  transform: scale(1.1); /* Slightly enlarge the icon */
+  transform: scale(1.1);
+  /* Slightly enlarge the icon */
   transition: all 0.1s ease;
 }
 
 #pause:active {
-  transform: scale(0.9); /* Slightly shrink the icon */
+  transform: scale(0.9);
+  /* Slightly shrink the icon */
   transition: all 0.1s ease;
 }
 
@@ -210,12 +212,14 @@ body {
 }
 
 #pause:hover {
-  transform: scale(1.1); /* Slightly enlarge the icon */
+  transform: scale(1.1);
+  /* Slightly enlarge the icon */
   transition: all 0.1s ease;
 }
 
 #pause:active {
-  transform: scale(0.9); /* Slightly shrink the icon */
+  transform: scale(0.9);
+  /* Slightly shrink the icon */
   transition: all 0.1s ease;
 }
 
@@ -242,12 +246,14 @@ body {
 }
 
 #play:hover {
-  transform: scale(1.1); /* Slightly enlarge the icon */
+  transform: scale(1.1);
+  /* Slightly enlarge the icon */
   transition: all 0.1s ease;
 }
 
 #play:active {
-  transform: scale(0.9); /* Slightly shrink the icon */
+  transform: scale(0.9);
+  /* Slightly shrink the icon */
   transition: all 0.1s ease;
 }
 
@@ -288,12 +294,14 @@ body {
 }
 
 #next:hover {
-  transform: scale(1.1); /* Slightly enlarge the icon */
+  transform: scale(1.1);
+  /* Slightly enlarge the icon */
   transition: all 0.1s ease;
 }
 
 #next:active {
-  transform: scale(0.9); /* Slightly shrink the icon */
+  transform: scale(0.9);
+  /* Slightly shrink the icon */
   transition: all 0.1s ease;
 }
 
@@ -323,12 +331,14 @@ body {
 }
 
 #check:hover {
-  transform: scale(1.1); /* Slightly enlarge the icon */
+  transform: scale(1.1);
+  /* Slightly enlarge the icon */
   transition: all 0.1s ease;
 }
 
 #check:active {
-  transform: scale(0.9); /* Slightly shrink the icon */
+  transform: scale(0.9);
+  /* Slightly shrink the icon */
   transition: all 0.1s ease;
 }
 
@@ -365,7 +375,8 @@ body {
 }
 
 #yes:active {
-  transform: scale(0.9); /* Slightly shrink the icon */
+  transform: scale(0.9);
+  /* Slightly shrink the icon */
   transition: all 0.1s ease;
 }
 
@@ -392,7 +403,8 @@ body {
 }
 
 #no:active {
-  transform: scale(0.9); /* Slightly shrink the icon */
+  transform: scale(0.9);
+  /* Slightly shrink the icon */
   transition: all 0.1s ease;
 }
 
@@ -435,7 +447,8 @@ body {
 }
 
 #yep:active {
-  transform: scale(0.9); /* Slightly shrink the icon */
+  transform: scale(0.9);
+  /* Slightly shrink the icon */
   transition: all 0.1s ease;
 }
 
@@ -462,7 +475,8 @@ body {
 }
 
 #oops:active {
-  transform: scale(0.9); /* Slightly shrink the icon */
+  transform: scale(0.9);
+  /* Slightly shrink the icon */
   transition: all 0.1s ease;
 }
 
@@ -482,4 +496,46 @@ body {
   padding: 0%;
   border: none;
   background-color: transparent;
+}
+
+.touch-some-grass {
+  top: 97px;
+  left: 63px;
+  position: absolute;
+  display: none;
+}
+
+.grab-a-snack {
+  position: absolute;
+  top: 100px;
+  left: 375px;
+  display: none;
+}
+
+.move {
+  position: absolute;
+  top: 172px;
+  left: 84px;
+  display: none;
+}
+
+.noot-noot {
+  position: absolute;
+  top: 178px;
+  left: 384px;
+  display: none;
+}
+
+.walk-around {
+  position: absolute;
+  top: 245px;
+  left: 67px;
+  display: none;
+}
+
+.get-some-water {
+  position: absolute;
+  top: 248px;
+  left: 359px;
+  display: none;
 }

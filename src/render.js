@@ -5,6 +5,17 @@ const Seconds = document.getElementById("seconds");
 var startBtnClicked = false;
 var startTimerId;
 
+const penguinImage = document.getElementsByClassName("image-icon")[0];
+const touchSomeGrass = document.getElementsByClassName("touch-some-grass")[0];
+const grabASnack = document.getElementsByClassName("grab-a-snack")[0];
+const move = document.getElementsByClassName("move")[0];
+const nootNoot = document.getElementsByClassName("noot-noot")[0];
+const walkAround = document.getElementsByClassName("walk-around")[0];
+const getSomeWater = document.getElementsByClassName("get-some-water")[0];
+
+var textToShow = [touchSomeGrass, grabASnack, move, nootNoot, walkAround, getSomeWater];
+var textToShowIndex = -1;
+
 // initializes and sets timer up
 if (window.sessionStorage.getItem("standingTimeTotal") == null) {
     initializeVariables();
@@ -69,11 +80,19 @@ function timer() {
         const penguinAudio = document.getElementById("penguinAudio");
 
         waddleAudio.play();
-        
+
+        penguinAudioPlayed = 0;
         waddleAudio.addEventListener("ended", () => {
             penguinAudio.loop = true;
             penguinAudio.volume = 0.8;
             penguinAudio.play();
+            penguinAudioPlayed++;
+
+            if (penguinAudioPlayed == 15) {
+                penguinAudio.pause();
+                penguinAudio.currentTime = 0;
+                penguinAudioPlayed = 0;
+            }
         });
     }
 
@@ -189,6 +208,13 @@ function yepButton() {
 
     showWorkingScreen();
 
+    touchSomeGrass.style.display = "none";
+    grabASnack.style.display = "none";  
+    move.style.display = "none";
+    nootNoot.style.display = "none";
+    walkAround.style.display = "none";
+    getSomeWater.style.display = "none";
+
     const CheckDialog = document.getElementById("checkDialog");
     CheckDialog.close();
 }
@@ -224,3 +250,31 @@ function closeButton() {
 function minimizeButton() {
     window.electronAPI.minimizeWindow();
 }
+
+// make the penguin interactive in the standing timer screen
+penguinImage.addEventListener("click", () => {
+    console.log(textToShowIndex);
+    console.log(textToShow.length);
+    if (window.sessionStorage.getItem("standingTime") == "true") {
+        if (textToShowIndex >= textToShow.length) {
+            textToShowIndex = 0;
+            removeEventListener("click", () => { });
+        } else {
+            textToShowIndex++;
+        }
+        textToShow[textToShowIndex].style.display = "block";
+    }
+});
+
+penguinImage.addEventListener("mouseenter", () => {
+    if (window.sessionStorage.getItem("standingTime") == "true") {
+        penguinImage.style.transform = "scale(1.05)";
+        penguinImage.style.transition = "transform 0.3s ease";
+    }
+});
+
+penguinImage.addEventListener("mouseleave", () => {
+    if (window.sessionStorage.getItem("standingTime") == "true") {
+        penguinImage.style.transform = "scale(1)";
+    }
+});
