@@ -1,11 +1,12 @@
 {
-  "name": "my-app",
-  "productName": "my-app",
+  "name": "standing-app",
+  "productName": "Standing App",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Timer to Remind You to Stand",
   "main": "src/index.js",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "electron .",
+    "build": "electron-builder",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
@@ -29,6 +30,31 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.7.0",
     "@electron-forge/plugin-fuses": "^7.7.0",
     "@electron/fuses": "^1.8.0",
-    "electron": "35.0.3"
+    "electron": "35.0.3",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.example.standingtime",
+    "productName": "Standing Time",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/penguin.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/penguin.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/penguin.png"
+    }
   }
 }
